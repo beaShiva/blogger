@@ -1,0 +1,93 @@
+
+<%- include("partials/header"); -%>
+<div class="container-fluids">
+  
+  
+ <img class="home-img" src="https://source.unsplash.com/random" alt="">
+</div>
+
+
+<div class="container compose">
+  
+  <a class="btn btn-primary rounded-pill" href="/login">Write Your Blog <i class="fas fa-upload"></i></a>
+</div>
+
+
+<form class="form-inline  my-2 my-lg-0">
+    <input class="form-control mr-sm-2 transparent-input" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+
+<div class="container post">
+  <h1 class="main-heading">Popular blog</h1>
+
+ 
+  
+
+  <%  posts.forEach(function(post){ %>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src=" css/card2.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%=post.title%></h5>
+      <p class="card-text card-content">  <%=post.content.substring(0,100)+"..."%> </p>
+      <p class="card-text"><span style="font-weight:bolder">Writteb by:</span> <%=post.name%> </p>
+      <a class="btn btn-primary" href="/posts/<%=post._id%>">Read More</a>
+    </div>
+  </div>
+
+  <% }) %>
+  
+</div>
+
+<div class="container review" >
+
+
+<h2 id="fh2">WE APPRECIATE YOUR REVIEW!</h2>
+<h6 id="fh2">Your review will help us to improve our web hosting quality products, and customer services.</h6>
+
+
+<form id="feedback" action="/" method="post">
+  
+
+ <div class="form-floating">
+<h4>Name<span class="input-group-addon"><i class="fa fa-user"></i></span>:</h4>
+  <input  name="name" placeholder=" John Doe" class="form-control m-2 w-50"  type="text">
+</div>
+<div class="form-floating">
+ <h4>Email<span class="input-group-addon"><i class="fa fa-envelope"></i></span>:</h4>
+  <input name="email" type="email" class="form-control m-2 w-50" placeholder="john.doe@yahoo.com">
+</div>
+ 
+ <div class="form-floating">
+   <h4>Star<span class="input-group-addon"><i class="fa fa-heart"></i></span>:</h4>
+ 
+ <select class="form-control w-50" name="star" id="rate">
+  <option value="1star">1</option>
+  <option value="2stars">2</option>
+  <option value="3stars">3</option>
+  <option value="4stars">4</option>
+  <option value="5stars">5</option>
+</select>
+</div>
+<div class="form-floating">
+  <h4>Text<span class="input-group-addon"><i class="fas fa-envelope-open-text"></i></span>:</h4>
+
+<textarea class="form-control w-50 m-2 " name="text" id="review" placeholder="write your review" spellcheck="false" rows="3"></textarea>
+</div>
+<button type="submit" href="/" class="btn btn-primary">Submit</button>
+
+</form>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<%- include("partials/footer"); -%>
